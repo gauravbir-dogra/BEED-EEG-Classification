@@ -82,7 +82,7 @@ The original unscaled features were used for:
 ## c. GitHub Repository Link
 
 **GitHub Repository:**  
-[Add GitHub Repository URL Here]
+https://github.com/gauravbir-dogra/BEED-EEG-Classification
 
 ---
 
