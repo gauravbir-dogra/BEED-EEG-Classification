@@ -85,8 +85,9 @@ for i in range(16):
 
         feature_values[feature_name] = st.number_input(
             feature_name,
-            value=0.0,
-            format="%.4f"
+            value=0,
+            step=1,
+            format="%d"
         )
 
 
