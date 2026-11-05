@@ -174,6 +174,6 @@ The application allows the user to:
 
 ### Live Application
 
-[Add Streamlit Community Cloud URL Here]
+https://beed-eeg-classification-rbhtqzuveiss2fpvg2l8fu.streamlit.app
 
 ---
