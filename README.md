@@ -163,14 +163,60 @@ BEED-EEG-Classification/
 
 ## Streamlit Application
 
-The trained machine learning models are deployed through Streamlit Community Cloud.
+The trained machine learning models are deployed using Streamlit Community Cloud.
 
-The application allows the user to:
+The application is designed to evaluate the saved classification models on an uploaded test dataset without retraining any model.
 
-1. Enter values for EEG features `X1` to `X16`.
-2. Select one of the five trained classification models.
-3. Generate a predicted EEG class.
-4. View the corresponding EEG category.
+### Application Features
+
+The Streamlit application allows users to:
+
+1. Upload the test dataset in CSV format.
+2. Validate that the uploaded dataset contains all required predictors (`X1` to `X16`) and the target variable (`y`).
+3. Select one of the five trained classification models from a dropdown:
+   - Logistic Regression
+   - Decision Tree
+   - K-Nearest Neighbors (KNN)
+   - Gaussian Naive Bayes
+   - Support Vector Machine (SVM)
+4. Evaluate the selected model using:
+   - Accuracy
+   - AUC
+   - Precision
+   - Recall
+   - F1 Score
+   - Matthews Correlation Coefficient (MCC)
+5. Display the confusion matrix for the selected model.
+6. View the evaluation results of all five models on the same uploaded test dataset.
+
+The application loads previously trained and saved model artifacts. The uploaded test dataset is used only for model evaluation and is **not used to retrain or tune the models**.
+
+### Test Dataset Format
+
+The uploaded CSV file must contain the following columns:
+
+```text
+X1, X2, X3, X4, X5, X6, X7, X8,
+X9, X10, X11, X12, X13, X14, X15, X16, y
+```
+
+The provided `test_data.csv` contains the held-out test observations used for evaluating the models.
+
+### Preprocessing During Evaluation
+
+The saved `StandardScaler` is applied to the uploaded feature data when evaluating:
+
+- Logistic Regression
+- K-Nearest Neighbors
+- Support Vector Machine
+
+The original unscaled feature values are used for:
+
+- Decision Tree
+- Gaussian Naive Bayes
+
+This ensures that each saved model receives data using the same preprocessing approach that was used during model development.
+
 
 ### Live Application
 
